@@ -111,20 +111,20 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## 6. Also go to BeenVerifiedTest/config/database.php and again check the following attributes, should be the same as the latest explained
 
-   'mysql' => [
-      'driver' => 'mysql',
-      'host' => env('DB_HOST', '127.0.0.1'),
-      'port' => env('DB_PORT', '8889'),
-      'database' => env('DB_DATABASE', 'songs_bd'),
-      'username' => env('DB_USERNAME', 'root'),
-      'password' => env('DB_PASSWORD', 'root.'),
-      'unix_socket' => env('DB_SOCKET', ''),
-      'charset' => 'utf8',
-      'collation' => 'utf8_unicode_ci',
-      'prefix' => '',
-      'strict' => true,
-      'engine' => null,
-      ]
+   - **'mysql' => [
+      - **'driver' => 'mysql',
+      - **'host' => env('DB_HOST', '127.0.0.1'),
+      - **'port' => env('DB_PORT', '8889'),
+      - **'database' => env('DB_DATABASE', 'songs_bd'),
+      - **'username' => env('DB_USERNAME', 'root'),
+      - **'password' => env('DB_PASSWORD', 'root.'),
+      - **'unix_socket' => env('DB_SOCKET', ''),
+      - **'charset' => 'utf8',
+      - **'collation' => 'utf8_unicode_ci',
+      - **'prefix' => '',
+      - **'strict' => true,
+      - **'engine' => null,
+      - **]
 ## 7. Open postman if you don't have it, can download it here : https://www.getpostman.com/ or you can just paste the API end points on the browser
 
 ## 8. API ENDPOINTS
@@ -134,13 +134,13 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## But for the first point of extra credit:
 ## Laravel solution
 
-$songs = DB::table('songs')
-            ->join('genres', 'songs.genre', '=', 'genres.id')
-            ->select('songs.title' , 'songs.artist', 'songs.duration', 'genres.name')
-            ->whereBetween('songs.duration', [$max, $min])
-            ->get();
+- **$songs = DB::table('songs')
+            - **->join('genres', 'songs.genre', '=', 'genres.id')
+            - **- **->select('songs.title' , 'songs.artist', 'songs.duration', 'genres.name')
+            - **->whereBetween('songs.duration', [$max, $min])
+            - **->get();
 
-return $songs;
+- **return $songs;
 
 Second extra credit
 SQL solution
