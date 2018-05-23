@@ -63,55 +63,55 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ## Valeria's Instructions
 
 ##Connect BD to Laravel project
-1. Install a local server on your computer such as MAMP or XAMPP depending on your computer's SO
+## 1. Install a local server on your computer such as MAMP or XAMPP depending on your computer's SO
 
-Link for XAMPP download : https://www.apachefriends.org/es/index.html
-Link for MAMP download : https://www.mamp.info/en/
+## Link for XAMPP download : https://www.apachefriends.org/es/index.html
+## Link for MAMP download : https://www.mamp.info/en/
 
-3. Download or clone the project located on github and save it in the following route
+## 3. Download or clone the project located on github and save it in the following route
   /Applications/MAMP/htdocs or /Applications/XAMPP/htdocs
 
-4. Run MAMP or XAMPP by searching it on your installed applications and click start servers, it should open a web page running on the correspondent server.
+## 4. Run MAMP or XAMPP by searching it on your installed applications and click start servers, it should open a web page running on the correspondent server.
 
-5. Go to MySQL/phpMyAdmin
+## 5. Go to MySQL/phpMyAdmin
 
-1.) Click new/ create database.
-2.) Enter songs_bd as database name
-3.) Click create
-4.) Go to SQL and copy paste the script content : dataBaseScript.sql
+## 1.) Click new/ create database.
+## 2.) Enter songs_bd as database name
+## 3.) Click create
+## 4.) Go to SQL and copy paste the script content : dataBaseScript.sql
 
-2. Make sure to install composer by executing the following commands on the terminal
+## 2. Make sure to install composer by executing the following commands on the terminal
 
-  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" (Download the installer to the current directory)
+  ## php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" (Download the installer to the current directory)
 
-  php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" (Verify the installer SHA-384)
+  ## php -r "if (hash_file('SHA384', 'composer-setup.php') === ## '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer ## verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" (Verify the installer SHA-384)
 
-  php composer-setup.php (Run the installer)
+  ## php composer-setup.php (Run the installer)
 
-  php -r "unlink('composer-setup.php');" (Remove the installer)
+  ## php -r "unlink('composer-setup.php');" (Remove the installer)
 
-  For more info: https://getcomposer.org/download/
+  ## For more info: https://getcomposer.org/download/
 
-3. Then install Laravel globally by typing the following command on the terminal
+## 3. Then install Laravel globally by typing the following command on the terminal
 
-  composer global require "laravel/installer"
+  ## composer global require "laravel/installer"
 
-4. Go to the root of the project on the terminal and run the following commands:
+## 4. Go to the root of the project on the terminal and run the following commands:
   php artisan key:generate and then php artisan serve
   It should show something like this: Laravel development server started: <http://127.0.0.1:8000>
 
-5. Go to the .env file and check the following attributes are right according to your computer's enviroment
+## 5. Go to the .env file and check the following attributes are right according to your computer's enviroment
 
-  DB_CONNECTION= mysql
-  DB_HOST= 127.0.0.1
-  DB_PORT= 8889
-  DB_DATABASE= songs_bd
-  DB_USERNAME= root
-  DB_PASSWORD= root
+  ## DB_CONNECTION= mysql
+  ## DB_HOST= 127.0.0.1
+  ## DB_PORT= 8889
+  ## DB_DATABASE= songs_bd
+  ## DB_USERNAME= root
+  ## DB_PASSWORD= root
 
-6. Also go to BeenVerifiedTest/config/database.php and again check the following attributes, should be the same as the latest explained
+## 6. Also go to BeenVerifiedTest/config/database.php and again check the following attributes, should be the same as the latest explained
 
-  'mysql' => [
+   'mysql' => [
       'driver' => 'mysql',
       'host' => env('DB_HOST', '127.0.0.1'),
       'port' => env('DB_PORT', '8889'),
@@ -125,14 +125,14 @@ Link for MAMP download : https://www.mamp.info/en/
       'strict' => true,
       'engine' => null,
       ]
-7. Open postman if you don't have it, can download it here : https://www.getpostman.com/ or you can just paste the API end points on the browser
+## 7. Open postman if you don't have it, can download it here : https://www.getpostman.com/ or you can just paste the API end points on the browser
 
-8. API ENDPOINTS
+## 8. API ENDPOINTS
 
--Filter by genre, title, artist : http://127.0.0.1:8000/getFilteredSong/data (Replace data for a value)
--Had problems with the local server
-But for the first point of extra credit:
-Laravel solution
+## -Filter by genre, title, artist : http://127.0.0.1:8000/getFilteredSong/data (Replace data for a value)
+## -Had problems with the local server
+## But for the first point of extra credit:
+## Laravel solution
 
 $songs = DB::table('songs')
             ->join('genres', 'songs.genre', '=', 'genres.id')
@@ -150,5 +150,5 @@ FROM (songs
 INNER JOIN genres ON songs.genre = genres.id)
 WHERE genres.name = "Rock"
 
-ADDITIONAL QUESTIONS
+## ADDITIONAL QUESTIONS
 I would have made an extra table called songs_genre since we have a many to many relationship. As attributes they will share the ids and the duration of the song.
